@@ -6,8 +6,7 @@ const Navbar = () => {
     const navOptions = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/contactUs">Contact us</Link></li>
-    <li><Link to="/dashboard">Dashboard</Link>
-    </li>
+    <li><Link to="/dashboard">Dashboard</Link></li>
     {
         // user ? <>
         //     {/* <span>{user?.displayName}</span> */}
