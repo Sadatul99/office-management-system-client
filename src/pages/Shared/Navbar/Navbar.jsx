@@ -1,21 +1,24 @@
 
+import { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
 
-    const navOptions = <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/contactUs">Contact us</Link></li>
-    <li><Link to="/dashboard">Dashboard</Link></li>
-    {
-        // user ? <>
-        //     {/* <span>{user?.displayName}</span> */}
-        //     <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
-        // </> : <>
-        //     <li><Link to="/login">Login</Link></li>
-        // </>
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
     }
-</>
+
+    const navOptions = <>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/contactUs">Contact us</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
+
+    </>
 
     return (
         <>
@@ -36,8 +39,19 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Get started</a>
+
+                
+                <div className="navbar-end space-x-6">
+                    {
+                        user ? <>
+                            {/* <span>{user?.displayName}</span>   */}
+                                <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+                        </> : <>
+                            <button className="btn btn-outline"><Link to='/login'>Login</Link></button>
+                        </>
+                    }
+                    <button className="btn btn-neutral"><Link to='/signUp'>Signup</Link></button>
+
                 </div>
             </div>
         </>

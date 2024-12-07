@@ -3,16 +3,16 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Controller, useForm } from "react-hook-form";
 
 const WorkSheet = () => {
-    const { register, handleSubmit, control } = useForm()
+  const { register, handleSubmit, control } = useForm()
 
-    const onSubmit = (data) => {
-        console.log(data);
-        // Handle form submission
-      };
+  const onSubmit = (data) => {
+    console.log(data);
+    // Handle form submission
+  };
 
 
-    return (
-        <div className="max-w-4xl mx-auto mt-8 bg-gray-50 p-6 rounded-lg shadow-md">
+  return (
+    <div className="max-w-4xl mx-auto mt-8 bg-gray-50 p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-gray-800">Work Sheet</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -60,7 +60,7 @@ const WorkSheet = () => {
         </button>
       </form>
     </div>
-    );
+  );
 };
 
 export default WorkSheet;
